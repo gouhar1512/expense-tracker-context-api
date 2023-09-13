@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { TransactionContext } from "../context/TransactionContext";
 
 //Money formatter function
 function moneyFormatter(num) {
@@ -17,27 +18,27 @@ function moneyFormatter(num) {
 }
 
 export const IncomeExpenses = () => {
-  // const { transactions } = useContext();
+  const { transactions } = useContext(TransactionContext);
 
-  // const amounts = transactions.map((transaction) => transaction.amount);
+  const amounts = transactions.map((transaction) => transaction.amount);
 
-  // const income = amounts
-  //   .filter((item) => item > 0)
-  //   .reduce((acc, item) => (acc += item), 0);
+  const income = amounts
+    .filter((item) => item > 0)
+    .reduce((acc, item) => (acc += item), 0);
 
-  // const expense =
-  //   amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
-  //   -1;
+  const expense =
+    amounts.filter((item) => item < 0).reduce((acc, item) => (acc += item), 0) *
+    -1;
 
   return (
     <div className="inc-exp-container">
       <div>
         <h4>Income</h4>
-        <p className="money plus">{moneyFormatter(0)}</p>
+        <p className="money plus">{moneyFormatter(income)}</p>
       </div>
       <div>
         <h4>Expense</h4>
-        <p className="money minus">{moneyFormatter(0)}</p>
+        <p className="money minus">{moneyFormatter(expense)}</p>
       </div>
     </div>
   );
