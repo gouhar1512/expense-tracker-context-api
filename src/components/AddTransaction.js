@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { TransactionDispatchContext } from "../context/TransactionContext";
+import { addTransactionAction } from "../context/transactionActionCreators";
 
 export const AddTransaction = () => {
   const [text, setText] = useState("");
@@ -8,10 +9,7 @@ export const AddTransaction = () => {
   const dispatch = useContext(TransactionDispatchContext);
 
   const addTransaction = (newTransaction) => {
-    dispatch({
-      type: "ADD",
-      payload: newTransaction,
-    });
+    dispatch(addTransactionAction(newTransaction));
   };
 
   const onSubmit = (e) => {

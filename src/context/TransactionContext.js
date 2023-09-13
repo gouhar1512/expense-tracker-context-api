@@ -4,18 +4,18 @@ export const initialState = {
   transactions: [
     {
       id: Math.floor(Math.random() * 100000000),
+      text: "Received",
+      amount: 50,
+    },
+    {
+      id: Math.floor(Math.random() * 100000000),
       text: "Milk",
-      amount: 10,
+      amount: -10,
     },
     {
       id: Math.floor(Math.random() * 100000000),
       text: "Bread",
-      amount: 20,
-    },
-    {
-      id: Math.floor(Math.random() * 100000000),
-      text: "Butter",
-      amount: 5,
+      amount: -20,
     },
   ],
 };

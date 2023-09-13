@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { TransactionDispatchContext } from "../context/TransactionContext";
+import { deleteTransactionAction } from "../context/transactionActionCreators";
 
 //Money formatter function
 function moneyFormatter(num) {
@@ -21,10 +22,7 @@ export const Transaction = ({ transaction }) => {
   const dispatch = useContext(TransactionDispatchContext);
 
   const deleteTransaction = (id) => {
-    dispatch({
-      type: "DELETE",
-      payload: id,
-    });
+    dispatch(deleteTransactionAction(id));
   };
 
   const sign = transaction.amount < 0 ? "-" : "+";
