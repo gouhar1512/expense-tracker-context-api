@@ -9,7 +9,14 @@ export const transactionReducer = (state, action) => {
       };
     }
     case "DELETE": {
-      return state;
+      let updatedTransactions = [...state.transactions];
+      updatedTransactions = updatedTransactions.filter(
+        (transaction) => transaction.id !== action.payload
+      );
+      return {
+        ...state,
+        transactions: updatedTransactions,
+      };
     }
     default:
       return state;

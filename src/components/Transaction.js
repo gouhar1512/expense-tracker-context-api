@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { TransactionDispatchContext } from "../context/TransactionContext";
 
 //Money formatter function
 function moneyFormatter(num) {
@@ -17,7 +18,14 @@ function moneyFormatter(num) {
 }
 
 export const Transaction = ({ transaction }) => {
-  // const { deleteTransaction } = useContext();
+  const dispatch = useContext(TransactionDispatchContext);
+
+  const deleteTransaction = (id) => {
+    dispatch({
+      type: "DELETE",
+      payload: id,
+    });
+  };
 
   const sign = transaction.amount < 0 ? "-" : "+";
 
@@ -28,7 +36,9 @@ export const Transaction = ({ transaction }) => {
         {sign}
         {moneyFormatter(transaction.amount)}
       </span>
-      <button onClick={() => {}} className="delete-btn">
+      <button
+        onClick={deleteTransaction.bind(this, transaction.id)}
+        className="delete-btn">
         x
       </button>
     </li>

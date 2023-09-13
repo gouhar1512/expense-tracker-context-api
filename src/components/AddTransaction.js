@@ -17,7 +17,6 @@ export const AddTransaction = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log(amount);
     if (text.trim().length === 0 || !amount) {
       return;
     }
@@ -29,6 +28,8 @@ export const AddTransaction = () => {
     };
 
     addTransaction(newTransaction);
+    setText("");
+    setAmount(0);
   };
 
   return (
