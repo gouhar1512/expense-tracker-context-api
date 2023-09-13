@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { TransactionDispatchContext } from "../context/TransactionContext";
 
 export const AddTransaction = () => {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
 
+  const dispatch = useContext(TransactionDispatchContext);
+
+  const addTransaction = (newTransaction) => {
+    dispatch({
+      type: "ADD",
+      payload: newTransaction,
+    });
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
+
+    console.log(amount);
+    if (text.trim().length === 0 || !amount) {
+      return;
+    }
 
     const newTransaction = {
       id: Math.floor(Math.random() * 100000000),
@@ -13,7 +28,7 @@ export const AddTransaction = () => {
       amount: +amount,
     };
 
-    // addTransaction(newTransaction);
+    addTransaction(newTransaction);
   };
 
   return (
