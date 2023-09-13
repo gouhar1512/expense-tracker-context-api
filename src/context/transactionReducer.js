@@ -1,6 +1,8 @@
+import { ADD, DELETE } from "./transactionConstants";
+
 export const transactionReducer = (state, action) => {
   switch (action.type) {
-    case "ADD": {
+    case ADD: {
       let updatedTransactions = [...state.transactions];
       updatedTransactions.push(action.payload);
       return {
@@ -8,7 +10,7 @@ export const transactionReducer = (state, action) => {
         transactions: updatedTransactions,
       };
     }
-    case "DELETE": {
+    case DELETE: {
       let updatedTransactions = [...state.transactions];
       updatedTransactions = updatedTransactions.filter(
         (transaction) => transaction.id !== action.payload

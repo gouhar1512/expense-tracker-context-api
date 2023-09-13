@@ -1,13 +1,15 @@
+import { ADD, DELETE } from "./transactionConstants";
+
 export const addTransactionAction = (payload) => {
   return {
-    type: "ADD",
+    type: ADD,
     payload: payload,
   };
 };
 
 export const deleteTransactionAction = (payload) => {
   return {
-    type: "DELETE",
+    type: DELETE,
     payload: payload,
   };
 };
