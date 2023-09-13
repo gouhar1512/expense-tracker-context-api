@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-const initialState = {
+export const initialState = {
   transactions: [
     {
       id: Math.floor(Math.random() * 100000000),
@@ -20,4 +20,4 @@ const initialState = {
   ],
 };
 
-export const TransactionContext = createContext(initialState);
+export const TransactionContext = createContext();
