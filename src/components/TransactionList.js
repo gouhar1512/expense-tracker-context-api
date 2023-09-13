@@ -3,7 +3,9 @@ import { Transaction } from "./Transaction";
 import { TransactionContext } from "../context/TransactionContext";
 
 export const TransactionList = () => {
-  const { transactions } = useContext(TransactionContext);
+  const {
+    appState: { transactions },
+  } = useContext(TransactionContext);
   return (
     <>
       <h3>History</h3>

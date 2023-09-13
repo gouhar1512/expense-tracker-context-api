@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { TransactionDispatchContext } from "../context/TransactionContext";
+import { TransactionContext } from "../context/TransactionContext";
 import { deleteTransactionAction } from "../context/transactionActionCreators";
 
 //Money formatter function
@@ -19,7 +19,7 @@ function moneyFormatter(num) {
 }
 
 export const Transaction = ({ transaction }) => {
-  const dispatch = useContext(TransactionDispatchContext);
+  const { dispatch } = useContext(TransactionContext);
 
   const deleteTransaction = (id) => {
     dispatch(deleteTransactionAction(id));

@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-import { TransactionDispatchContext } from "../context/TransactionContext";
+import { TransactionContext } from "../context/TransactionContext";
 import { addTransactionAction } from "../context/transactionActionCreators";
 
 export const AddTransaction = () => {
   const [text, setText] = useState("");
   const [amount, setAmount] = useState(0);
 
-  const dispatch = useContext(TransactionDispatchContext);
+  const { dispatch } = useContext(TransactionContext);
 
   const addTransaction = (newTransaction) => {
     dispatch(addTransactionAction(newTransaction));

@@ -21,4 +21,3 @@ export const initialState = {
 };
 
 export const TransactionContext = createContext();
-export const TransactionDispatchContext = createContext();

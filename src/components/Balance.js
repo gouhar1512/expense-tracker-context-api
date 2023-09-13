@@ -18,7 +18,9 @@ function moneyFormatter(num) {
 }
 
 export const Balance = () => {
-  const { transactions } = useContext(TransactionContext);
+  const {
+    appState: { transactions },
+  } = useContext(TransactionContext);
 
   const amounts = transactions.map((transaction) => transaction.amount);
 
